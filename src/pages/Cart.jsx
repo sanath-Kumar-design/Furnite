@@ -39,7 +39,7 @@ function Cart() {
               </p>
               <img
                 className="w-64 md:w-96"
-                src="/pngwing.png"
+                src="https://i.pinimg.com/1200x/47/07/f4/4707f4138db3ff7930a081dc17974fd8.jpg"
                 alt="Empty cart"
               />
             </div>

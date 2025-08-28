@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link} from 'react-router-dom'
+import { FaTimes } from 'react-icons/fa'
 import Cart from '../pages/cart'
+import { FaFilter } from 'react-icons/fa'
 import MobileSearchPage from '../pages/mobileSearchPage'
 
 function Header() {
     const [showSearch, setShowSearch] = useState(false)
     const CartItem = JSON.parse(sessionStorage.getItem("cart")) || []
+    const[sidebar, setSidebar] = useState(false);
 
     return (
         <div >
@@ -48,8 +51,7 @@ function Header() {
                                 <div className='leading-8'>
                                 <input
                                     type="text"
-                                    className={`rounded border px-3 absolute right-full mr-2 top-1/2 -translate-y-1/2 transition-all duration-300 hidden md:block
-    ${showSearch ? "w-52 opacity-100 pointer-events-auto" : "w-0 opacity-0 pointer-events-none"}`}
+                                    className={`rounded border px-3 absolute right-full mr-2 top-1/2 -translate-y-1/2 transition-all duration-300 hidden md:block ${showSearch ? "w-52 opacity-100 pointer-events-auto" : "w-0 opacity-0 pointer-events-none"}`}
                                     placeholder="Search...."
                                 />
                                 </div>
@@ -72,11 +74,20 @@ function Header() {
                         </Link>
 
                     </div>
-                    <div className='flex justify-end'>
-                        <button className="md:hidden text-gray-700 hover:text-gray-900 focus:outline-nonefu" id="mobile-menu-button">
+                    <div className='flex justify-evenly relative ml-auto gap-7 w-fit border'>
+                        <button className="md:hidden text-gray-700 hover:text-gray-900 focus:outline-nonefu" id="mobile-menu-button" onClick={() => setSidebar(!sidebar)}>
                             <i className="fas fa-bars fa-lg">
                             </i>
                         </button>
+                        <div className={`fixed top-0 right-0 border leading-12 h-screen z-100 bg-white/10 backdrop-blur-md border-white/20 p-6 w-[200px] transform transition-transform duration-300 ${sidebar ? "translate-x-0" : "translate-x-full"}` }>
+                            <ul>
+                                <button className='text-2xl' onClick={() => setSidebar(false)}><FaTimes/></button>
+                                <li className='border-b ' >Home</li>
+                                <li className='border-b'>Shop</li>
+                                <li className='border-b'>About</li>
+                                <li className='border-b'>Contact</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <nav className="md:hidden hidden border-t border-gray-200" id="mobile-menu">

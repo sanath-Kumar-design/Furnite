@@ -6,6 +6,7 @@ import Notification from "../components/Notification";
 import { useProducts } from "../components/Allproducts";
 
 
+
 function Chair() {
     const { products, loading } = useProducts("chair")
     const [showNotification, setShowNotification] = useState(false);
