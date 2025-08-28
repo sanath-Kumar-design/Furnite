@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Link} from 'react-router-dom'
 import { FaTimes } from 'react-icons/fa'
-import Cart from '../pages/cart'
 import { FaFilter } from 'react-icons/fa'
 import MobileSearchPage from '../pages/mobileSearchPage'
 
