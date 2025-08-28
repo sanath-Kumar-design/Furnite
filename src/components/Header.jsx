@@ -74,24 +74,11 @@ function Header() {
                         </Link>
 
                     </div>
-                    <div className='flex justify-evenly relative ml-auto gap-7 w-fit border'>
+                    <div className='flex justify-evenly relative ml-auto gap-7 w-fit'>
                         <button className="md:hidden text-gray-700 hover:text-gray-900 focus:outline-nonefu" id="mobile-menu-button" onClick={() => setSidebar(!sidebar)}>
                             <i className="fas fa-bars fa-lg">
                             </i>
                         </button>
-<<<<<<< HEAD
-                        <div className={`fixed top-0 right-0 border leading-12 h-screen z-100 bg-white/10 backdrop-blur-md border-white/20 p-6 w-[200px] transform transition-transform duration-300 ${sidebar ? "translate-x-0" : "translate-x-full"}` }>
-=======
-                        <div className={`fixed top-0 right-0 leading-12 h-screen z-100 bg-white/10 backdrop-blur-md border-white/20 p-6 w-[200px] transform transition-transform duration-300 ${sidebar ? "translate-x-0" : "translate-x-full"}` }>
->>>>>>> cd5f88d (Dropdown Added)
-                            <ul>
-                                <button className='text-2xl' onClick={() => setSidebar(false)}><FaTimes/></button>
-                                <li className='border-b ' >Home</li>
-                                <li className='border-b'>Shop</li>
-                                <li className='border-b'>About</li>
-                                <li className='border-b'>Contact</li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
                 <nav className="md:hidden hidden border-t border-gray-200" id="mobile-menu">
