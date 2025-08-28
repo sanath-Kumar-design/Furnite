@@ -79,7 +79,11 @@ function Header() {
                             <i className="fas fa-bars fa-lg">
                             </i>
                         </button>
+<<<<<<< HEAD
                         <div className={`fixed top-0 right-0 border leading-12 h-screen z-100 bg-white/10 backdrop-blur-md border-white/20 p-6 w-[200px] transform transition-transform duration-300 ${sidebar ? "translate-x-0" : "translate-x-full"}` }>
+=======
+                        <div className={`fixed top-0 right-0 leading-12 h-screen z-100 bg-white/10 backdrop-blur-md border-white/20 p-6 w-[200px] transform transition-transform duration-300 ${sidebar ? "translate-x-0" : "translate-x-full"}` }>
+>>>>>>> cd5f88d (Dropdown Added)
                             <ul>
                                 <button className='text-2xl' onClick={() => setSidebar(false)}><FaTimes/></button>
                                 <li className='border-b ' >Home</li>
