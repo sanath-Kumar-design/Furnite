@@ -8,7 +8,7 @@ import ScrollToTop from "./ScrollToTop";
 import Tables from "./pages/Tables";
 import Profile from "./pages/Profile";
 import Storage from "./pages/Storage";
-import MobileSearchPage from "./pages/mobileSearchPage";
+import MobileSearchPage from "./pages/MobileSearchPage";
 import ManageAddress from "./pages/ManageAddress";
 
 function App() {
