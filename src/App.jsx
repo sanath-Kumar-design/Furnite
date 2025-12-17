@@ -10,20 +10,22 @@ import Profile from "./pages/Profile";
 import Storage from "./pages/Storage";
 import MobileSearchPage from "./pages/MobileSearchPage";
 import ManageAddress from "./pages/ManageAddress";
+import CheckoutPage from "./pages/Checkout";
 
 function App() {
   return (
     <ScrollToTop>
       <Routes>
-        <Route path="/manageaddress" element={<ManageAddress/>}/>
-        <Route path="/profilePage" element={<Profile/>}/>
-        <Route path="/mobileSearchPage" element={<MobileSearchPage/>}/>
-        <Route path="/storage" element={<Storage/>}/>
-        <Route path="/" element={<Homepage/>}/>
-        <Route path="/cart" element={<Cart/>}/>
-        <Route path="/chair" element={<Chair/>}/>
-        <Route path="/sofas" element={<Sofas/>}/>
-        <Route path="/table" element={<Tables/>}/>
+        <Route path="/manageaddress" element={<ManageAddress />} />
+        <Route path="/profilePage" element={<Profile />} />
+        <Route path="/mobileSearchPage" element={<MobileSearchPage />} />
+        <Route path="/storage" element={<Storage />} />
+        <Route path="/" element={<Homepage />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/chair" element={<Chair />} />
+        <Route path="/sofas" element={<Sofas />} />
+        <Route path="/table" element={<Tables />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
       </Routes>
     </ScrollToTop>
   );

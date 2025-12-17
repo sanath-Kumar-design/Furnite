@@ -4,7 +4,9 @@ import { FaTimes } from 'react-icons/fa'
 import { FaFilter } from 'react-icons/fa'
 import MobileSearchPage from '../pages/MobileSearchPage'
 import SideMenu from './Sidebar'
+import { useLocation } from "react-router-dom";
 import { useNavigate } from 'react-router-dom'
+import { div } from 'framer-motion/client'
 
 
 function Header() {
@@ -13,6 +15,10 @@ function Header() {
     const [sidebar, setSidebar] = useState(false)
     const CartItem = JSON.parse(sessionStorage.getItem("cart")) || []
 
+
+    const location = useLocation();
+
+    const hideMenu = location.pathname === "/cart";
     const onClickShop = () => {
         const section = document.getElementById("Categories");
         if (section) {
@@ -41,7 +47,7 @@ function Header() {
                         Furnite
                     </Link>
                     <nav className="hidden md:flex justify-center space-x-8 font-medium text-gray-700 ">
-                        <Link className="hover:text-gray-900 transition" >
+                        <Link className="hover:text-gray-900 transition" to={'/'}>
                             Home
                         </Link>
                         <Link className="hover:text-gray-900 transition" onClick={onClickShop}>
@@ -55,7 +61,6 @@ function Header() {
                         </Link>
                     </nav>
                     <div className="flex items-center space-x-4  justify-end">
-
                         <div>
                             <Link to={"/mobileSearchPage"}
                                 aria-label="Search"
@@ -74,7 +79,7 @@ function Header() {
                                 <div className='leading-8'>
                                     <input
                                         type="text"
-                                        className={`rounded border px-3 absolute right-full mr-2 top-1/2 -translate-y-1/2 transition-all duration-300 hidden md:block ${showSearch ? "w-52 opacity-100 pointer-events-auto" : "w-0 opacity-0 pointer-events-none"}`}
+                                        className={`rounded px-3 absolute right-full mr-2 top-1/2 -translate-y-1/2 transition-all duration-300 hidden md:block ${showSearch ? "w-52 opacity-100 pointer-events-auto" : "w-0 opacity-0 pointer-events-none"}`}
                                         placeholder="Search...."
                                     />
                                 </div>
@@ -97,16 +102,17 @@ function Header() {
                         </Link>
 
                     </div>
-                    <div className='flex justify-evenly relative ml-auto gap-7 w-fit'>
-                        <button className="md:hidden text-gray-700 hover:text-gray-900 focus:outline-nonefu cursor-pointer" id="mobile-menu-button" onClick={() => setSidebar(true)}>
-                            <i className="fas fa-bars fa-lg">
-                            </i>
-                        </button>
-                    </div>
-                    <div className={`sidebar ${sidebar ? "open" : ""}`}>
-                        <SideMenu setSidebar={setSidebar} />
-                    </div>
-
+                        <div>
+                            <div className='flex justify-evenly relative ml-auto gap-7 w-fit '>
+                                <button className="md:hidden text-gray-700 hover:text-gray-900 focus:outline-nonefu cursor-pointer" id="mobile-menu-button" onClick={() => setSidebar(true)}>
+                                    <i className="fas fa-bars fa-lg">
+                                    </i>
+                                </button>
+                            </div>
+                            <div className={`sidebar ${sidebar ? "open" : ""}`}>
+                                <SideMenu setSidebar={setSidebar} />
+                            </div>
+                        </div>
                     {sidebar && (
                         <div
                             onClick={() => setSidebar(false)}
@@ -115,22 +121,6 @@ function Header() {
                     )}
 
                 </div>
-                <nav className="md:hidden hidden border-t border-gray-200" id="mobile-menu">
-                    <div className="px-6 py-4 space-y-3 font-medium text-gray-700">
-                        <a className="block hover:text-gray-900 transition" href="#">
-                            Home
-                        </a>
-                        <a className="block hover:text-gray-900 transition" href="#">
-                            Shop
-                        </a>
-                        <a className="block hover:text-gray-900 transition" href="#">
-                            About
-                        </a>
-                        <a className="block hover:text-gray-900 transition" href="#">
-                            Contact
-                        </a>
-                    </div>
-                </nav>
             </header>
         </div>
     )

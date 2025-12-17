@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import { getCart } from "../Utils/cartUtil";
 import { FaTrash } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function Cart() {
   const [cart, setCart] = useState([]);
@@ -100,9 +101,9 @@ function Cart() {
               {cart.reduce((total, item) => total + item.qty, 0)} Items) =
               ${cart.reduce((sum, item) => sum + item.price * item.qty, 0)}
             </p>
-            <button className="bg-yellow-400 px-5 py-2 mt-4 rounded-3xl w-full md:w-auto cursor-pointer">
+            <Link className="bg-yellow-400 px-5 py-2 mt-4 rounded-3xl w-full md:w-auto cursor-pointer"to={"/checkout"}>
               Proceed to Buy
-            </button>
+            </Link>
           </div>
         )}
       </div>
