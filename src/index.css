@@ -16,3 +16,27 @@ html{
 button{
   cursor: pointer;
 }
+
+.sidebar {
+  position: fixed; 
+  top: 0;
+  right: -250px;
+  width: 250px;
+  transition: 0.3s ease;
+  z-index: 999;
+  background-color: white;
+}
+.sidebar.open {
+  right: 0;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.4);
+  z-index: 900;
+}
+

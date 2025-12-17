@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [tailwindcss(), react()],
-  base: '/MainProject/',  // this should match your GitHub repo name
+  base: '/', 
   server: {
     host: true
   }

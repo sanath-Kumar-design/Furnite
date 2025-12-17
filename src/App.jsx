@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import React from "react";
 import Homepage from "./Homepage";
-import Cart from "./pages/cart";
+import Cart from "./pages/Cart";
 import Chair from "./pages/Chair";
 import Sofas from "./pages/Sofas";
 import ScrollToTop from "./ScrollToTop";

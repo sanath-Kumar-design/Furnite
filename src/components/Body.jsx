@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import Cart from '../pages/cart';
+import Cart from '../pages/Cart';
 import { FaCheck } from 'react-icons/fa';
 import Notification from './Notification';
 import { Link } from 'react-router-dom';
-
-
 
 export const Products = [
     {
@@ -42,31 +40,37 @@ export const Products = [
 ];
 
 function Body() {
-    const[email, setEmail] = useState("");
-    const[message, setMessage] = useState("");
-    const[type, setType] = useState("")
-    const[showNotification, setShowNotification] = useState(false);
+    const [email, setEmail] = useState("");
+    const [message, setMessage] = useState("");
+    const [type, setType] = useState("")
+    const [showNotification, setShowNotification] = useState(false);
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     const handleSubscribe = () => {
-        if(emailPattern.test(email)){
+        if (emailPattern.test(email)) {
             setMessage("Thanks for subscribing")
             setType("success")
         }
-        else if(email === ""){
+        else if (email === "") {
             setMessage("Enter an email")
             setType("error")
-        }else{
+        } else {
             setMessage("Enter a valid email")
             setType("error")
-        
+
         }
         setShowNotification(true)
         setTimeout(() => setShowNotification(false), 2000)
-        
+
     }
 
 
+    const onClickScroll = () => {
+        const section = document.getElementById("Categories");
+        if (section) {
+            section.scrollIntoView({ behavior: "smooth" });
+        }
+    }
 
     function Product({ item }) {
         const [showNotification, setShowNotification] = useState(false);
@@ -111,7 +115,7 @@ function Body() {
                         >
                             Add to Cart
                         </button>
-                        <Notification message="Item added to cart" visible={showNotification}/>
+                        <Notification message="Item added to cart" visible={showNotification} />
                     </div>
                 </div>
             </article>
@@ -134,9 +138,9 @@ function Body() {
                         <p className="text-gray-700 mb-8 max-w-xl">
                             Explore our exclusive collection of modern and classic furniture designed to transform your living space.
                         </p>
-                        <a className="inline-block bg-gray-900 text-white px-8 py-3 rounded-md font-semibold hover:bg-gray-800 transition" href="#Categories">
+                        <button onClick={onClickScroll} className="inline-block bg-gray-900 text-white px-8 py-3 rounded-md font-semibold hover:bg-gray-800 transition" >
                             Shop Now
-                        </a>
+                        </button>
                     </div>
                     <div className="relative">
                         <img alt="Modern living room with a stylish gray sofa, wooden coffee table, and decorative plants" className="rounded-lg shadow-lg w-full object-cover" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/3433d4c9-4eb5-484e-7e3d-05e8ad6baaad.jpg" width="600" />
@@ -264,22 +268,22 @@ function Body() {
                             </blockquote>
                         </div>
                     </section>
-                    <section className="mt-20 bg-gray-900 rounded-lg py-16 px-6 text-center text-white">
+                    <section id="Contact" className="mt-20 bg-gray-900 rounded-lg py-16 px-6 text-center text-white" >
                         <h2 className="text-3xl font-semibold mb-4">
                             Subscribe to Our Newsletter
                         </h2>
                         <p className="mb-8 max-w-xl mx-auto">
                             Get the latest updates on new products and upcoming sales.
                         </p>
-                        <form action="#" className="max-w-md mx-auto flex flex-col sm:flex-row gap-4" onClick={(e) => {e.preventDefault(); handleSubscribe();}}>
+                        <form action="#" className="max-w-md mx-auto flex flex-col sm:flex-row gap-4" onClick={(e) => { e.preventDefault(); handleSubscribe(); }}>
                             <label className="sr-only text-white-200" htmlFor="email">
                                 Email address
                             </label>
-                            <input onChange={(e) => setEmail(e.target.value)} className="text-white flex-grow px-4 py-3 rounded-md  focus:outline-none focus:ring-2 focus:ring-gray-300 border border-white" id="email" name="email" placeholder="Enter your email" required="" type="email"  />
+                            <input onChange={(e) => setEmail(e.target.value)} className="text-white flex-grow px-4 py-3 rounded-md  focus:outline-none focus:ring-2 focus:ring-gray-300 border border-white" id="email" name="email" placeholder="Enter your email" required="" type="email" />
                             <button className="bg-white text-gray-900 font-semibold px-6 py-3 rounded-md hover:bg-gray-200 transition">
                                 Subscribe
                             </button>
-                            <Notification message={message} visible={showNotification} type={type}/>
+                            <Notification message={message} visible={showNotification} type={type} />
                         </form>
                     </section>
                 </section>
