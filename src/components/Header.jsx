@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FaTimes } from 'react-icons/fa'
 import { FaFilter } from 'react-icons/fa'
-import MobileSearchPage from '../pages/mobileSearchPage'
+import MobileSearchPage from '../pages/MobileSearchPage'
 import SideMenu from './Sidebar'
 import { useNavigate } from 'react-router-dom'
 
